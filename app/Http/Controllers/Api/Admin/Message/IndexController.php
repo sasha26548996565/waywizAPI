@@ -12,7 +12,7 @@ class IndexController extends Controller
 {
     public function __invoke(): JsonResponse
     {
-        $messages = Message::with('user')->get();
+        $messages = Message::with('user')->orderBy('id', 'DESC')->get();
 
         return response()->json(compact('messages'));
     }

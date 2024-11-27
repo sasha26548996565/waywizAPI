@@ -12,7 +12,7 @@ class IndexController extends Controller
 {
     public function __invoke(): JsonResponse
     {
-        $users = User::all();
+        $users = User::orderBy('id', 'DESC')->get();
 
         return response()->json(compact('users'));
     }
