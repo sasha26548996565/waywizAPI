@@ -23,7 +23,7 @@ class GPTBotApi implements GPTBotApiContract
                 'messages' => [
                     [
                         'role' => 'user',
-                        'content' => $message . config('context.additional_info')
+                        'content' => config('context.additional_info') . $message
                     ],
                     [
                         'role' => 'system',

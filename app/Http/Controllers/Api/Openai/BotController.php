@@ -50,7 +50,8 @@ class BotController extends Controller
             ]);
 
             return response()->json([
-                'message' => $message
+                'message' => $message,
+                'status' => true
             ]);
         } catch (\Exception $exception) {
             return response()->json([
