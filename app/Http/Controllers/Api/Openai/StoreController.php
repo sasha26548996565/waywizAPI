@@ -7,25 +7,19 @@ namespace App\Http\Controllers\Api\Openai;
 use App\Models\User;
 use App\Models\Message;
 use Illuminate\Http\Response;
-use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Openai\GPTBotApiContract;
 use App\Http\Requests\Api\Openai\MessageRequest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class BotController extends Controller
+class StoreController extends Controller
 {
     public function __construct(
         private GPTBotApiContract $gptBotApi,
     ) {}
 
-    public function renderPage(): View
-    {
-        return view('bot.index');
-    }
-
-    public function sendMessage(MessageRequest $request): JsonResponse
+    public function __invoke(MessageRequest $request): JsonResponse
     {
         try {
             $params = $request->validated();

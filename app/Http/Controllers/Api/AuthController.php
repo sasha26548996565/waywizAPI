@@ -46,7 +46,10 @@ class AuthController extends Controller
             if (Auth::attempt($params) == false) {
                 return response()->json([
                     'status' => false,
-                    'message' => 'User not found'
+                    'errors' => ['email' => [
+                        'User not found'
+                        ]
+                    ]
                 ], Response::HTTP_UNAUTHORIZED);
             }
 
@@ -56,6 +59,7 @@ class AuthController extends Controller
             return response()->json([
                 'status' => true,
                 'token' => $token,
+                'user' => $user,
                 'message' => 'User logged in successfully'
             ], Response::HTTP_OK);
         } catch (\Throwable $exception) {
