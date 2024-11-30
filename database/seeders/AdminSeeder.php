@@ -14,25 +14,25 @@ class AdminSeeder extends Seeder
         [
             'email' => 'admin1@gmail.com',
             'password' => 'tester123',
-            'name' => '.',
+            'name' => 'admin1',
             'is_admin' => true
         ],
         [
             'email' => 'admin2@gmail.com',
             'password' => 'tester123',
-            'name' => '.',
+            'name' => 'admin2',
             'is_admin' => true
         ],
         [
             'email' => 'admin3@gmail.com',
             'password' => 'tester123',
-            'name' => '.',
+            'name' => 'admin3',
             'is_admin' => true
         ],
         [
             'email' => 'admin4@gmail.com',
             'password' => 'tester123',
-            'name' => '.',
+            'name' => 'admin4',
             'is_admin' => true
         ],
     ];
