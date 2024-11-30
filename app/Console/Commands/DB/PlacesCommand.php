@@ -42,9 +42,9 @@ class PlacesCommand extends Command
                         'description' => $descriptionPlace
                     ]);
 
-                    $this->info('places stored');
                 }
             }
+            $this->info('places stored');
         } catch (Exception $exception) {
             $this->error('Error: ' . $exception->getMessage());
         }
