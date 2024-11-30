@@ -38,6 +38,11 @@ const routes = [
                 name: 'admin.message.index',
                 component: () => import('./components/Admin/Message/Index.vue'),
             },
+            {
+                path: 'places',
+                name: 'admin.place.index',
+                component: () => import('./components/Admin/Place/Index.vue'),
+            },
         ],
     },
 ];

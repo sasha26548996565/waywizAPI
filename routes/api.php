@@ -31,6 +31,10 @@ Route::namespace('App\Http\Controllers\Api')->middleware('auth:sanctum')->group(
         Route::name('message.')->prefix('message')->namespace('Message')->group(function () {
             Route::get('/', IndexController::class);
         });
+
+        Route::name('place.')->prefix('place')->namespace('Place')->group(function () {
+            Route::get('/', IndexController::class);
+        });
     });
 });
 
