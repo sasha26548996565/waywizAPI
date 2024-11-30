@@ -19,7 +19,7 @@ class PlacesCommand extends Command
     public function handle(): void
     {
         $filePath = 'Places/Base.xlsx';
-        $spreadsheet = IOFactory::load(Storage::path($filePath));
+        $spreadsheet = IOFactory::load(Storage::disk('public')->path($filePath));
         $sheet = $spreadsheet->getActiveSheet();
         $rowCount = $sheet->getHighestRow();
         $currentIndustry = '';
