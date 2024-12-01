@@ -41,7 +41,6 @@ class PlacesCommand extends Command
                         'name' => $namePlace,
                         'description' => $descriptionPlace
                     ]);
-
                 }
             }
             $this->info('places stored');

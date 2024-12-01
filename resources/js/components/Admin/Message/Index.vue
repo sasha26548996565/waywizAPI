@@ -33,7 +33,7 @@
                             {{ message.is_user ? message.user.name : 'Бот' }}
                         </td>
                         <td class="border border-gray-300 px-4 py-2">
-                            {{ message.created_at }}
+                            {{ $dayjs(message.created_at).format('DD.MM.YYYY HH:mm:ss') }}
                         </td>
                     </tr>
                     <tr v-if="!messages.length">
