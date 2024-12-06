@@ -26,10 +26,12 @@ Route::namespace('App\Http\Controllers\Api')->middleware('auth:sanctum')->group(
         ->prefix('admin')->group(function () {
         Route::prefix('user')->namespace('User')->group(function () {
             Route::get('/', IndexController::class);
+            Route::delete('/destroy/{id}', DestroyController::class);
         });
 
         Route::name('message.')->prefix('message')->namespace('Message')->group(function () {
             Route::get('/', IndexController::class);
+            Route::delete('/destroy/{id}', DestroyController::class);
         });
 
         Route::name('place.')->prefix('place')->namespace('Place')->group(function () {

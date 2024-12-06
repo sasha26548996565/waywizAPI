@@ -15,6 +15,9 @@
                         <th class="border border-gray-300 px-4 py-2 text-left">
                             Email
                         </th>
+                        <th class="border border-gray-300 px-4 py-2 text-left">
+                            Действия
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,6 +31,14 @@
                         </td>
                         <td class="border border-gray-300 px-4 py-2">
                             {{ user.email }}
+                        </td>
+                        <td class="border border-gray-300 px-4 py-2">
+                            <button
+                                class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition duration-300"
+                                @click.prevent="destroy(user.id)"
+                            >
+                                Удалить
+                            </button>
                         </td>
                     </tr>
                     <tr v-if="!users.length">
@@ -55,14 +66,33 @@ export default {
         };
     },
     mounted() {
-        axios
-            .get("/api/admin/user/")
-            .then((response) => {
-                this.users = response.data.users;
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        this.getItems();
+    },
+    methods: {
+        getItems() {
+            axios
+                .get("/api/admin/user/")
+                .then((response) => {
+                    this.users = response.data.users;
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
+        destroy(id) {
+            this.loading = true;
+
+            axios
+                .delete("/api/admin/user/destroy/" + id)
+                .then((response) => {
+                    this.getItems();
+                    this.loading = false;
+                })
+                .catch((error) => {
+                    this.loading = false;
+                    console.log(error);
+                });
+        },
     },
 };
 </script>
