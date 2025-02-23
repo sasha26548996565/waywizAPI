@@ -21,7 +21,7 @@ class StoreController extends Controller
 
     public function __invoke(MessageRequest $request): JsonResponse
     {
-        try {
+
             $params = $request->validated();
             $user = User::findOrFail(Auth::user()->id);
 
@@ -47,11 +47,6 @@ class StoreController extends Controller
                 'message' => $message,
                 'status' => true
             ]);
-        } catch (\Exception $exception) {
-            return response()->json([
-                'status' => false,
-                'message' => $exception->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
-        }
+
     }
 }
