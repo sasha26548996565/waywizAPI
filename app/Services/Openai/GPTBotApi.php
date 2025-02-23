@@ -6,6 +6,7 @@ namespace App\Services\Openai;
 
 use Exception;
 use Throwable;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 
 class GPTBotApi implements GPTBotApiContract
@@ -34,6 +35,8 @@ class GPTBotApi implements GPTBotApiContract
                 'temperature' => 0.7,
                 'max_tokens' => 2000
             ]);
+
+            Log::info($response->json());
 
             $message = $response->json()['choices'][0]['message']['content'];
 
