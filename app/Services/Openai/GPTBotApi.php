@@ -15,7 +15,7 @@ class GPTBotApi implements GPTBotApiContract
 
     public function sendMessage(string $message): string
     {
-
+        try {
             $response = Http::withoutVerifying()
             ->withHeaders([
                 'Authorization' => 'Bearer ' . config('openai.token')
@@ -36,11 +36,11 @@ class GPTBotApi implements GPTBotApiContract
                 'max_tokens' => 2000
             ]);
 
-            Log::info($response->json());
-
             $message = $response->json()['choices'][0]['message']['content'];
 
             return $message;
-
+        } catch (Throwable $exception) {
+            throw new Exception($exception->getMessage());
+        }
     }
 }
