@@ -63,6 +63,7 @@ export default {
     data() {
         return {
             users: [],
+            loading: false
         };
     },
     mounted() {
@@ -70,6 +71,8 @@ export default {
     },
     methods: {
         getItems() {
+            this.loading = true;
+
             axios
                 .get("/api/admin/user/")
                 .then((response) => {
@@ -77,6 +80,8 @@ export default {
                 })
                 .catch((error) => {
                     console.log(error);
+                }).finally(() => {
+                    this.loading = false;
                 });
         },
         destroy(id) {

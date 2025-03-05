@@ -71,6 +71,7 @@ export default {
     data() {
         return {
             messages: [],
+            loading: false
         };
     },
     mounted() {
@@ -78,6 +79,8 @@ export default {
     },
     methods: {
         getItems() {
+            this.loading = true;
+
             axios
                 .get("/api/admin/message/")
                 .then((response) => {
@@ -85,6 +88,8 @@ export default {
                 })
                 .catch((error) => {
                     console.log(error);
+                }).finally(() => {
+                    this.loading = false;
                 });
         },
         destroy(id) {
