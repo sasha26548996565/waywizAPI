@@ -20,7 +20,7 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody v-if="(loading == false) && users">
                     <tr
                         v-for="user in users"
                         :key="user.id"

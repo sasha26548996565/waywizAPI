@@ -21,7 +21,7 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody v-if="(loading == false) && messages">
                     <tr
                         v-for="message in messages"
                         :key="message.id"
