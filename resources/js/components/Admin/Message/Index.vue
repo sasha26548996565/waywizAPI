@@ -49,7 +49,7 @@
                             </button>
                         </td>
                     </tr>
-                    <tr v-if="!messages.length">
+                    <tr v-if="! messages.length">
                         <td
                             colspan="3"
                             class="text-center py-4 text-gray-500 border border-gray-300"

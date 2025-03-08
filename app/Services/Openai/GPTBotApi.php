@@ -6,7 +6,6 @@ namespace App\Services\Openai;
 
 use Exception;
 use Throwable;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 
 class GPTBotApi implements GPTBotApiContract
@@ -31,9 +30,9 @@ class GPTBotApi implements GPTBotApiContract
                         'content' => config('context.text')
                     ],
                 ],
-                'model' => 'gpt-3.5-turbo',
+                'model' => 'gpt-4o-mini',
                 'temperature' => 0.7,
-                'max_tokens' => 2000
+                'max_tokens' => 4000
             ]);
 
             $message = $response->json()['choices'][0]['message']['content'];

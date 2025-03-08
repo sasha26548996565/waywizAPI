@@ -41,7 +41,7 @@
                             </button>
                         </td>
                     </tr>
-                    <tr v-if="!users.length">
+                    <tr v-if="! users.length">
                         <td
                             colspan="2"
                             class="text-center py-4 text-gray-500 border border-gray-300"

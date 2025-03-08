@@ -36,7 +36,7 @@
                             {{ place.description }}
                         </td>
                     </tr>
-                    <tr v-if="!places.length">
+                    <tr v-if="! places.length">
                         <td
                             colspan="3"
                             class="text-center py-4 text-gray-500 border border-gray-300"
