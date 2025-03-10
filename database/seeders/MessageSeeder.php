@@ -29,7 +29,6 @@ class MessageSeeder extends Seeder
         ["email" => "maxcoder12@gmail.com", "text" => "Привет! 😊 В Python это очень просто! Напиши так:\n```python\nprint('Привет, мир!')\n```\n🚀 Легко и быстро!", "is_user" => false, "created_at" => "2025-03-01T09:16:30Z"],
         ["email" => "maxcoder12@gmail.com", "text" => "А можно сделать, чтобы она повторяла это 5 раз?", "is_user" => true, "created_at" => "2025-03-01T09:15:00Z"],
         ["email" => "maxcoder12@gmail.com", "text" => "Конечно! 🎉 Используй цикл:\n```python\nfor i in range(5):\n    print('Привет, мир!')\n```\n🔄 Теперь программа повторит приветствие 5 раз!", "is_user" => false, "created_at" => "2025-03-01T09:17:10Z"],
-
         ["email" => "kotprog@gmail.com", "text" => "Как сделать кнопку в HTML, чтобы она что-то делала?", "is_user" => true, "created_at" => "2025-03-02T10:30:00Z"],
         ["email" => "kotprog@gmail.com", "text" => "Привет! 👋 Используй тег `<button>` и добавь к нему обработчик на JavaScript:\n```html\n<button onclick='alert(\"Ты нажал кнопку!\")'>Нажми меня!</button>\n```\n🖱️ Теперь при нажатии появится всплывающее сообщение!", "is_user" => false, "created_at" => "2025-03-02T10:31:45Z"],
         ["email" => "kotprog@gmail.com", "text" => "А как сделать так, чтобы она меняла цвет страницы?", "is_user" => true, "created_at" => "2025-03-02T10:30:00Z"],
@@ -39,7 +38,6 @@ class MessageSeeder extends Seeder
     public function run(): void
     {
         $users = User::whereIn('email', $this->userEmails)->pluck('id', 'email')->toArray();
-
 
         foreach ($this->messages as $message) {
             Message::create([
