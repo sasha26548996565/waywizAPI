@@ -81,6 +81,7 @@ class MessageSeeder extends Seeder
 
     public function run(): void
     {
+        $this->generateMessages();
         $users = User::whereIn('email', $this->userEmails)->pluck('id', 'email')->toArray();
 
         foreach ($this->messages as $message) {
