@@ -163,7 +163,6 @@ class MessageSeeder extends Seeder
             ]
         ];
 
-
         foreach ($messages as $index => &$message) {
             $message["email"] = $userEmails[$index % count($userEmails)];
         }
