@@ -13,6 +13,7 @@ class Message extends Model
         'is_user',
         'text',
         'user_id',
+        'created_at'
     ];
 
     public function user(): BelongsTo
